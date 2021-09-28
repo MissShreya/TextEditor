@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/challenge3.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+</head>
+<body>
+    <div class="toolbar">
+          <ul class="tool-list">
+              <li class="tool">
+                  <button type="button" href="#" data-command="justify" class="tool-btn ">
+                      <i class="fas fa-align-left"></i>
+                    </button>
+              </li>
+              <li class="tool">
+                <button type="button" href="#" data-command="justifyCenter" class="tool-btn ">
+                    <i class="fas fa-align-center"></i>
+                  </button>
+            </li>
+            <li class="tool">
+                <button type="button" href="#" data-command="bold" class="tool-btn ">
+                    <i class="fas fa-bold"></i>
+                  </button>
+            </li>
+            <li class="tool">
+                <button type="button" href="#" data-command="underline" class="tool-btn l">
+                    <i class="fas fa-underline"></i>
+                  </button>
+            </li>
+            <li class="tool">
+                <button type="button" href="#" data-command="insertOrderedList" class="tool-btn">
+                    <i class="fas fa-list-ol"></i>
+                  </button>
+            </li>
+            <li class="tool">
+                <button type="button" href="#" data-command="insertUnorderedList" class="tool-btn">
+                    <i class="fas fa-list-ul"></i>
+                  </button>
+            </li>
+            <li class="tool">
+                <button type="button" href="#" data-command="createlink" class="tool-btn">
+                    <i class="fas fa-link"></i>
+                  </button>
+            </li>
+            <li class="tool">
+                <button type="button" href="#" data-command="italic" class="tool-btn">
+                    <i class="fas fa-italic"></i>
+                  </button>
+            </li>
+            <li class="tool">
+                <button type="button" href="#" data-command="undo" class="tool-btn">
+                    <i class="fas fa-undo"></i>
+                  </button>
+            </li>
+            <li class="tool">
+                <button type="button" href="#" data-command="redo" class="tool-btn">
+                    <i class="fas fa-redo"></i>
+                  </button>
+            </li>
+          </ul>  
+        </div>
+    <div contenteditable="true" id="output"></div>
+    <script>
+        let output=document.getElementById('output');
+        let buttons=document.getElementsByClassName('tool-btn');
+        for(let btn of buttons){
+            btn.addEventListener('click',()=>{
+                let cmd=btn.dataset['command'];
+                if(cmd==='createlink'){
+                    let url=prompt("Enter the link here:","http:\/\/");
+                    document.execCommand(cmd,false,url);
+                }
+                else{
+                    document.execCommand(cmd,false,null);
+                }
+            })
+        }
+
+    </script>
+</body>
+</html>
